@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <!-- Viewport para que la página sea responsiva -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HostInventario - Icontec</title>
+        <meta charset="UTF-8">
+
+        <!-- Configuración de CSP -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;">
+
+        <!-- Enlace al archivo CSS de SweetAlert2 -->
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.min.css">
+
+        <!-- Enlace al archivo CSS de DataTables -->
+        <link rel="stylesheet" type="text/css"
+            href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.min.css">
+
+        <!-- Estilos personalizados de la aplicación -->
+        <link rel="stylesheet"
+            href="../SiteAssets/InventarioEquipos/CSS/estilos.css">
+        <link rel="stylesheet"
+            href="../SiteAssets/InventarioEquipos/CSS/main.css">
+
+        <!-- Fuente de iconos Font Awesome -->
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    </head>
+
+    <body>
+
+        <main class="page-content pt-2">
+            
+            <div class="containerPrincipal">
+
+                <!-------------------------- Header -------------------------------->
+
+                <header class="header"> <!-- Cebecera del Sitio (Opciones de navegación y otros) -->
+
+                    <div class="header-left">
+                        <img
+                            src="../SiteAssets/InventarioEquipos/IMAGENES/logo_EntornosProActivos.png"
+                            alt="Logo" class="logo">
+                        <button class="btn-header">ARUS</button>
+                    </div>
+
+                    <nav class="header-nav">
+
+                        <ul class="nav-menu">
+                            <li><a href="#" data-target="inicio">Inicio</a></li>
+                            <li><a href="#"
+                                    data-target="inventario">Gesti&oacute;n del
+                                    inventario</a></li>
+                            <li><a href="#" data-target="equipos">Equipos
+                                    Inform&aacute;ticos</a></li>
+                            <li><a href="#"
+                                    data-target="usuarios">Usuarios</a></li>
+                            <li><a href="#"
+                                    data-target="configuracion">Configuraci&oacute;n</a></li>
+                        </ul>
+
+                    </nav>
+
+                    <div class="contendorFlexRowLogin">
+                        <h2 id="loginNombre">Nombre completo</h2>
+                        <h2 id="loginCorreo">Correo electr&oacute;nico
+                        </h2>
+
+                    </div>
+
+                </header>
+
+                <div class="seccion-contenido"> <!-- Contenido del cuerpo (formularios, tablas, etc.) -->
+
+                    <div id="inicio" class="content">
+                        <!-------- Contenedor Inicio --------------->
+
+                        <h4>Inicio</h4>
+
+                    </div>
+
+                    <div id="inventario" class="content">
+                        <!-------- Contenedor Inventario --------------->
+
+                        <h4>Gesti&oacute;n del Inventario</h4>
+
+                    </div>
+
+                    <div id="equipos" class="content">
+
+                        <!-------- Contenedor Equipos Informaticos -------+++++++++++++++++++-------->
+
+                        <div class="containerOpcionesEI">
+
+                            <button class="btn btn-sm custom-btn btn-Nuevo"
+                                type="button">
+                                <i class="fas fa-plus custom-icon"></i> <span
+                                    class="custom-text">Nuevo</span>
+                            </button>
+
+                            <button id="updateButton"
+                                class="btn btn-sm custom-btn btn-Actualizar"
+                                type="button">
+                                <i id="iconActualizarEI"
+                                    class="fas fa-arrow-rotate-right custom-icon"></i>
+                                <span class="custom-text">Actualizar</span>
+                            </button>
+
+                            <button id="uploadButton"
+                                class="btn btn-sm custom-btn btn-SubirArchivo"
+                                type="button">
+                                <i id="iconSubirArchivoEI"
+                                    class="fas fa-upload custom-icon"></i>
+                                <span class="custom-text">Subir Archivo</span>
+                            </button>
+
+                        </div>
+
+                        <!------------------ Contenedor formulario - Equipos Informaticos ----------->
+
+                        <div class="containerFormularioEquipos">
+
+                            <div class="TituloFormulario">
+                                <h2 class="tituloContainerInfo"></h2>
+                            </div>
+
+                            <div class="campo campoProveedor">
+                                <label for="proveedor">Proveedor</label>
+                                <select id="proveedor" class="selectbox">
+                                    <option value disabled selected
+                                        hidden>Seleccionar</option>
+                                    <option value="Proveedor 1">Proveedor
+                                        1</option>
+                                    <option value="Proveedor 2">Proveedor
+                                        2</option>
+                                    <option value="Proveedor 3">Proveedor
+                                        3</option>
+                                </select>
+                            </div>
+
+                            <div class="campo campoMarca">
+                                <label for="marca">Marca</label>
+                                <select id="marca" class="selectbox">
+                                    <option value disabled selected
+                                        hidden>Seleccionar</option>
+                                    <option value="Marca 1">Marca 1</option>
+                                    <option value="Marca 2">Marca 2</option>
+                                    <option value="Marca 3">Marca 3</option>
+                                </select>
+                            </div>
+
+                            <div class="campo campoModelo">
+                                <label for="modelo">Modelo</label>
+                                <select id="modelo" class="selectbox">
+                                    <option value disabled selected
+                                        hidden>Seleccionar</option>
+                                    <option value="Modelo 1">Modelo 1</option>
+                                    <option value="Modelo 2">Modelo 2</option>
+                                    <option value="Modelo 3">Modelo 3</option>
+                                </select>
+                            </div>
+
+                            <div class="campo campoSerial">
+                                <label for="serial">Serial</label>
+                                <input type="text" id="serial" class="textbox"
+                                    autocomplete="off">
+                            </div>
+
+                            <div class="campo campoPlaca">
+                                <label for="placa">Placa Inventario</label>
+                                <input type="text" id="placa" class="textbox"
+                                    autocomplete="off">
+                            </div>
+
+                            <div class="campo campoTipoEquipo">
+                                <label for="tipoEquipo">Tipo de Equipo</label>
+                                <select id="tipoEquipo" class="selectbox">
+                                    <option value disabled selected
+                                        hidden>Seleccionar</option>
+                                    <option
+                                        value="Portatil">Port&aacute;til</option>
+                                    <option
+                                        value="Escritorio">Escritorio</option>
+                                    <option value="Servidor">Servidor</option>
+                                </select>
+                            </div>
+
+                            <div class="campo campoSistemaOperativo">
+                                <label for="SistemaOperativo">Sistema
+                                    Operativo</label>
+                                <select id="sistemaOperativo" class="selectbox">
+                                    <option value disabled selected
+                                        hidden>Seleccionar</option>
+                                    <option value="Windows 11">Windows
+                                        11</option>
+                                    <option value="Windows 10">Windows
+                                        10</option>
+                                    <option value="Windows Server">Windows
+                                        Server</option>
+                                </select>
+                            </div>
+
+                            <div class="campo campoCapacidadDiscoDuro">
+                                <label for="capacidadDiscoDuro">Capacidad del
+                                    Disco
+                                    Duro</label>
+                                <select id="capacidadDiscoDuro"
+                                    class="selectbox">
+                                    <option value disabled selected
+                                        hidden>Seleccionar</option>
+                                    <option value="500GB">500GB</option>
+                                    <option value="1TB">1TB</option>
+                                    <option value="2TB">2TB</option>
+                                </select>
+                            </div>
+
+                            <div class="campo campoMemoriaRAM">
+                                <label for="memoriaRAM">Memoria RAM</label>
+                                <select id="memoriaRAM" class="selectbox">
+                                    <option value disabled selected
+                                        hidden>Seleccionar</option>
+                                    <option value="4GB">4GB</option>
+                                    <option value="8GB">8GB</option>
+                                    <option value="16GB">16GB</option>
+                                    <option value="32GB">32GB</option>
+                                </select>
+                            </div>
+
+                            <div class="containerBotones">
+                                <!-- Botones dinamicos -->
+                            </div>
+
+                        </div>
+
+                        <!------------------ Contenedor Tabla - Equipos Informaticos ----------->
+
+                        <div class="containerTablaEquipos">
+                            <h2 class="tituloContainerInfo">Equipos
+                                Inform&aacute;ticos</h2>
+                            <table id="tablaDatos">
+                                <thead>
+                                    <!--Encabezado de la tabla-->
+                                </thead>
+                                <tbody>
+                                    <!-- Datos de la tabla -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <div id="usuarios" class="content">
+                        <!-------- Contenedor Equipos Usuarios --------------->
+
+                        <h4>Usuarios</h4>
+
+                    </div>
+
+                    <div id="configuracion" class="content">
+                        <!-------- Contenedor Equipos Configuración --------------->
+
+                        <h4>Configuraci&oacute;n</h4>
+
+                    </div>
+
+                </div>
+
+<div class="footer">
+    <img src="../SiteAssets/InventarioEquipos/IMAGENES/logo_Arus.png" alt="Logo Grupo Sura" class="footer-logo">
+    <div class="footer-text">
+        <p>Sitio web en desarrollo. &copy; 2025 ARUS.</p>
+        <p>Todos los derechos reservados.</p>
+    </div>
+</div>
+
+            </div>
+
+        </main>
+
+        <!-- Scripts - Librerias -->
+        <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.all.min.js"></script>
+        <script
+            src="https://cdn.datatables.net/2.0.7/js/dataTables.min.js"></script>
+
+        <!-- Scripts -->
+    <script nonce="abc123" src="../SiteAssets/InventarioEquipos/JAVASCRIPT/modelo.js"></script>
+    <script nonce="abc123" src="../SiteAssets/InventarioEquipos/JAVASCRIPT/vista.js"></script>
+    <script nonce="abc123" src="../SiteAssets/InventarioEquipos/JAVASCRIPT/controlador.js"></script>
+
+    </body>
+
+</html>
